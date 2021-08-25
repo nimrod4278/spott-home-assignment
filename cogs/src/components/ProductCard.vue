@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card class="ma-8" >
+    <v-card class="ma-8">
       <v-row>
         <v-col
           cols="4"

@@ -33,8 +33,7 @@
 import Toolbar from "../components/Toolbar";
 import ProductCard from "../components/ProductCard";
 
-import * as api from '../services/api/api'
-
+import * as api from "../services/api/api";
 
 export default {
   name: "Home",
@@ -49,8 +48,8 @@ export default {
     coutriesNames: [],
   }),
   async created() {
-    this.products = await api.get("/products").then(res => res.data)
-    this.countries = await api.get("/countries").then(res => res.data)
+    this.products = await api.get("/products").then((res) => res.data);
+    this.countries = await api.get("/countries").then((res) => res.data);
     this.coutriesNames = this.countries.map((x) => x.name);
     this.filteredProducts = this.products;
   },

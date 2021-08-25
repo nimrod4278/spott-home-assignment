@@ -1,5 +1,5 @@
 <template class=" d-flex flex-row align-end">
-  <v-dialog max-width="1000px" >
+  <v-dialog max-width="1000px">
     <template v-slot:activator="modalActivator">
       <v-btn class="primary" v-on="modalActivator.on">update</v-btn>
     </template>
@@ -22,9 +22,9 @@
             </v-col>
           </v-row>
           <v-row class="d-flex align-center">
-            <v-col class="body-1 bold font-weight-medium" >Shipment Cost</v-col>
+            <v-col class="body-1 bold font-weight-medium">Shipment Cost</v-col>
             <v-col class="d-flex justify-end mr-8"
-              ><h2 >{{ product.cogs.shipmentUnitCost }}</h2></v-col
+              ><h2>{{ product.cogs.shipmentUnitCost }}</h2></v-col
             >
             <v-col>
               <v-text-field
@@ -78,8 +78,8 @@
 </template>
 
 <script>
-import * as api from '../services/api/api'
-import VerifyProductDetails from '../services/UpdateForm/ValidateForm';
+import * as api from "../services/api/api";
+import VerifyProductDetails from "../services/UpdateForm/ValidateForm";
 
 export default {
   name: "ProductModal",
@@ -118,21 +118,20 @@ export default {
         },
       };
 
-      let isValidated = VerifyProductDetails(updatedProduct)
+      let isValidated = VerifyProductDetails(updatedProduct);
 
-      if(isValidated){
-        api.post('/cogs', updatedProduct)
-        .then((res) => {
+      if (isValidated) {
+        api.post("/cogs", updatedProduct).then((res) => {
           if (res.status == 201) {
             this.product = updatedProduct;
-            this.$emit('updateproduct', updatedProduct);
-            alert("Updated product!")
+            this.$emit("updateproduct", updatedProduct);
+            alert("Updated product!");
           } else {
-            alert(`ERROR - ${res.error}`)
+            alert(`ERROR - ${res.error}`);
           }
         });
       } else {
-        alert("Product data is wrong - Please try again")
+        alert("Product data is wrong - Please try again");
       }
     },
   },

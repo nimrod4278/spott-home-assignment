@@ -8,7 +8,7 @@ require("dotenv").config();
 mongoose.set('useFindAndModify', false);
 
 mongoose.connect(
-    process.env.MONGODB_URL, {
+    process.env.MONGODB_URL || "mongodb://localhost/cogs", {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }
